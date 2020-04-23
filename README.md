@@ -1,1 +1,1 @@
-# my-awesome-script
+# Bacterial genome Assembly
