@@ -15,3 +15,7 @@ seqkit stats -a -G N out_contig.fa
 # 2.iterateのステップ
 #最終出力結果は，"out_iterativeAssembly.fa"
 platanus_b iterate -t 2 -c out_contig.fa -IP1 ../reads/XXXXX.sampled.fastp.fastq ../reads/YYYYY.sampled.fastp.fastq
+
+#統計量の確認
+#3MBp程度のゲノムであれば，100本以下の配列に収まれば上出来と考えるらしい
+seqkit stats -a -G N out_iterativeAssembly.fa
