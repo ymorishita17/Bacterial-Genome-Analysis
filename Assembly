@@ -1,0 +1,17 @@
+#アセンブリ
+
+#Platanus_Bの実行
+
+# 1.assembleのステップ
+#出力結果には，out_contig.fa（アセンブリした結果のコンティグ配列を含んだもの）, out_32merFrq.tsv（K=32で計算したKmerの出現頻度のファイル）の２つが含まれる
+
+platanus_b assemble -t 2 -f ../reads/XXXXX.sampled.fastp.fastq ../reads/YYYYY.sampled.fastp.fastq
+
+#seqkitを用いて統計値を求める
+#-a オプションは,sum_gapとN50を出力結果に加える
+#-G Nオプション：不明塩基Nをギャップとみなすように指定している
+seqkit stats -a -G N out_contig.fa
+
+# 2.iterateのステップ
+#最終出力結果は，"out_iterativeAssembly.fa"
+platanus_b iterate -t 2 -c out_contig.fa -IP1 ../reads/XXXXX.sampled.fastp.fastq ../reads/YYYYY.sampled.fastp.fastq
