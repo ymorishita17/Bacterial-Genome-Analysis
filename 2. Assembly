@@ -3,7 +3,7 @@
 #Platanus_Bの実行
 
 # 1.assembleのステップ
-#出力結果には，out_contig.fa（アセンブリした結果のコンティグ配列を含んだもの）, out_32merFrq.tsv（K=32で計算したKmerの出現頻度のファイル）の２つが含まれる
+#出力結果には， out_contig.fa（アセンブリした結果のコンティグ配列を含んだもの）, out_32merFrq.tsv（K=32で計算したKmerの出現頻度のファイル）の２つが含まれる
 
 platanus_b assemble -t 2 -f ../reads/XXXXX.sampled.fastp.fastq ../reads/YYYYY.sampled.fastp.fastq
 
