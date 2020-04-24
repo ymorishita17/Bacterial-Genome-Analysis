@@ -1,0 +1,5 @@
+#downloads
+curl -O ftp://ftp.ddbj.nig.ac.jp//ddbj_database/dra/fastq/ERA349/ERA349287/ERX539052.ERR580964_2.fastq.bz2
+
+#展開する
+bunzip2 *bz2
