@@ -3,3 +3,27 @@ curl -O ftp://ftp.ddbj.nig.ac.jp//ddbj_database/dra/fastq/ERA349/ERA349287/ERX53
 
 #展開する
 bunzip2 *bz2
+
+#データの確認
+#データの概要
+seqkit stats *.fastq
+
+#クオリティチェック
+fastqc *.fastq
+
+#出力結果(.html)をブラウザで開いて閲覧する．
+
+#アダプター配列の除去
+fastp -i XXX.fastq -I YYY.fastq -o XXX_fastp.fastq -O YYY_fastp.fastq
+
+#クオリティチェックの再確認
+fastqc *.fastp.fastq
+
+#アセンブリに使う配列の抽出 (sample)
+#統計値の再確認
+seqkit stats *fastq
+
+seqkit sample -p 0.2 XXX.fastp.fastq > XXX.sampled.fastp.fastq
+seqkit sample -p 0.2 YYY.fastp.fastq > YYY.sampled.fastp.fastq
+
+#もう一度統計値を確認し，x100になっているか確認する
