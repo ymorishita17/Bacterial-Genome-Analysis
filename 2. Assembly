@@ -2,6 +2,8 @@
 
 #Platanus_Bの実行
 
+#まず　assembleディレクトリに移動しておく
+cd ../assemble
 # 1.assembleのステップ
 #出力結果には， out_contig.fa（アセンブリした結果のコンティグ配列を含んだもの）, out_32merFrq.tsv（K=32で計算したKmerの出現頻度のファイル）の２つが含まれる
 
@@ -14,6 +16,8 @@ seqkit stats -a -G N out_contig.fa
 
 # 2.iterateのステップ
 #最終出力結果は，"out_iterativeAssembly.fa"
+#（-c)は"assemple"ステップの結果ファイルを渡す
+#(-IP1)はリードファイルを指定する
 platanus_b iterate -t 2 -c out_contig.fa -IP1 ../reads/XXXXX.sampled.fastp.fastq ../reads/YYYYY.sampled.fastp.fastq
 
 #統計量の確認
